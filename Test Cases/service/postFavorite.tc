@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>postFavorite</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>183a7fa1-9e0e-48ff-bcd8-bfb77d613047</testCaseGuid>
+</TestCaseEntity>

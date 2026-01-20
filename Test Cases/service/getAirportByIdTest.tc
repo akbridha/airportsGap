@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>getAirportByIdTest</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>981cde86-2f3e-4c4d-99ca-90096efb3300</testCaseGuid>
+</TestCaseEntity>

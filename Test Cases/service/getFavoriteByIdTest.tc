@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>getFavoriteByIdTest</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>2a04c4f8-9cb2-49ca-9a92-659b474c799b</testCaseGuid>
+</TestCaseEntity>

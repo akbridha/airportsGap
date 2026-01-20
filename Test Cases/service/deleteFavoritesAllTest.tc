@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>deleteFavoritesAllTest</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>ca85a66a-7fe2-4ea2-9c0c-94ac4bd11646</testCaseGuid>
+</TestCaseEntity>

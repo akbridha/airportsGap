@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>patchFavoritesById</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>5990125c-fdb6-4138-880a-a2bd9f678ae4</testCaseGuid>
+</TestCaseEntity>
