@@ -11,7 +11,11 @@
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>true</followRedirects>
    <httpBody></httpBody>
-   <httpBodyContent></httpBodyContent>
+   <httpBodyContent>{
+  "contentType": "application/json",
+  "charset": "UTF-8",
+  "text": "{\n  \"airport_id\": \"JFK\",\n  \"note\": \"Favorite airport in New York\"\n}"
+}</httpBodyContent>
    <httpBodyType></httpBodyType>
    <katalonVersion>10.4.2</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
