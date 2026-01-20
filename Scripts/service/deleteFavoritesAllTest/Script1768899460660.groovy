@@ -16,4 +16,15 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper
+
+// Kirim request dengan token dinamis
+def response = WS.sendRequest(findTestObject('deleteFavoritesAll', [
+	('token') : GlobalVariable.authToken
+]))
+
+// Assertion sederhana
+WS.verifyResponseStatusCode(response, 204)
+
+println("Test deleteFavoritesAll berhasil - Semua favorites telah dihapus")
 

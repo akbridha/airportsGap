@@ -16,4 +16,28 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper
+
+// Kirim request dengan airportID dinamis
+def airportId = "KIX"
+def response = WS.sendRequest(findTestObject('getAirportsId', [
+	('airportID') : airportId
+]))
+
+// Assertion sederhana
+WS.verifyResponseStatusCode(response, 200)
+
+// Parse response JSON
+def jsonSlurper = new JsonSlurper()
+def jsonResponse = jsonSlurper.parseText(response.getResponseBodyContent())
+
+// Verifikasi data airport
+assert jsonResponse.data != null : "Data airport tidak boleh null"
+assert jsonResponse.data.id == airportId : "Airport ID harus sesuai dengan yang diminta"
+assert jsonResponse.data.attributes.iata == airportId : "IATA code harus sesuai"
+assert jsonResponse.data.attributes.name != null : "Airport name harus ada"
+assert jsonResponse.data.attributes.city != null : "Airport city harus ada"
+assert jsonResponse.data.attributes.country != null : "Airport country harus ada"
+
+println("Test getAirportById berhasil - Airport: " + jsonResponse.data.attributes.name)
 

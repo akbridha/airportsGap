@@ -31,7 +31,7 @@
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
-      <value>Bearer 8Ng1K8fTjoykWov4CfBowtYf</value>
+      <value>Bearer ${token}</value>
       <webElementGuid>b86f8dcd-82a8-451d-9f24-208e9547fbb5</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>10.4.2</katalonVersion>
@@ -62,4 +62,11 @@ RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
+   <variables>
+      <defaultValue>your_token_here</defaultValue>
+      <description></description>
+      <id>token</id>
+      <masked>false</masked>
+      <name>token</name>
+   </variables>
 </WebServiceRequestEntity>

@@ -14,15 +14,15 @@
    <httpBodyContent>{
   "contentType": "application/json",
   "charset": "UTF-8",
-  "text": "{\n  \"airport_id\": \"JFK\",\n  \"note\": \"Favorite airport in New York\"\n}"
+  "text": "{\\n  \\\"from\\\": \\\"${from}\\\",\\n  \\\"to\\\": \\\"${to}\\\"\\n}"
 }</httpBodyContent>
-   <httpBodyType></httpBodyType>
+   <httpBodyType>text</httpBodyType>
    <katalonVersion>10.4.2</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
-   <restRequestMethod>GET</restRequestMethod>
-   <restUrl></restUrl>
+   <restRequestMethod>POST</restRequestMethod>
+   <restUrl>https://airportgap.com/api/airports/distance</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -32,4 +32,18 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <wsdlAddress></wsdlAddress>
+   <variables>
+      <defaultValue>KIX</defaultValue>
+      <description></description>
+      <id>from</id>
+      <masked>false</masked>
+      <name>from</name>
+   </variables>
+   <variables>
+      <defaultValue>NRT</defaultValue>
+      <description></description>
+      <id>to</id>
+      <masked>false</masked>
+      <name>to</name>
+   </variables>
 </WebServiceRequestEntity>

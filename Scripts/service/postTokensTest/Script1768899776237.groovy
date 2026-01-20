@@ -16,4 +16,27 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper
+
+// Kirim request dengan email dan password dinamis
+def response = WS.sendRequest(findTestObject('postTokens', [
+	('email') : 'test@airportgap.com',
+	('password') : 'airportgappassword'
+]))
+
+// Assertion sederhana
+WS.verifyResponseStatusCode(response, 200)
+
+// Parse response JSON
+def jsonSlurper = new JsonSlurper()
+def jsonResponse = jsonSlurper.parseText(response.getResponseBodyContent())
+
+// Verifikasi token diterima
+assert jsonResponse.token != null : "Token tidak boleh null"
+assert jsonResponse.token.length() > 0 : "Token harus ada dan tidak kosong"
+
+// Simpan token untuk digunakan di test lain
+GlobalVariable.authToken = jsonResponse.token
+
+println("Test postTokens berhasil - Token: " + jsonResponse.token)
 

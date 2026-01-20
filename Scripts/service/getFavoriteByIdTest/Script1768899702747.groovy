@@ -16,4 +16,25 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper
+
+// Kirim request dengan parameter dinamis
+def response = WS.sendRequest(findTestObject('getFavoriteId', [
+	('favoriteId') : GlobalVariable.favoriteId,
+	('token') : GlobalVariable.authToken
+]))
+
+// Assertion sederhana
+WS.verifyResponseStatusCode(response, 200)
+
+// Parse response JSON
+def jsonSlurper = new JsonSlurper()
+def jsonResponse = jsonSlurper.parseText(response.getResponseBodyContent())
+
+// Verifikasi favorite
+assert jsonResponse.data != null : "Data favorite tidak boleh null"
+assert jsonResponse.data.id != null : "Favorite ID harus ada"
+assert jsonResponse.data.attributes.airport != null : "Airport data harus ada"
+
+println("Test getFavoriteById berhasil - Favorite ID: " + jsonResponse.data.id)
 

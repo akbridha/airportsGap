@@ -16,4 +16,34 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper
+
+// Kirim request dengan parameter dinamis
+def response = WS.sendRequest(findTestObject('postFavorite', [
+	('airport_id') : 'GKA',
+	('note') : 'kalo lagi tax heaven',
+	('token') : GlobalVariable.authToken
+]))
+
+//error apakah gara2 passing datanya atau testnyacase tidak sesuai
+//bisa jadi juga memang objectnya tidak betul.
+//
+
+// Assertion sederhana
+WS.verifyResponseStatusCode(response, 201)
+
+// Parse response JSON
+def jsonSlurper = new JsonSlurper()
+def jsonResponse = jsonSlurper.parseText(response.getResponseBodyContent())
+
+// Verifikasi favorite dibuat
+assert jsonResponse.data != null : "Data favorite tidak boleh null"
+assert jsonResponse.data.id != null : "Favorite ID harus ada"
+assert jsonResponse.data.attributes.airport.iata == 'HGU' : "Airport IATA mesti  sesuai"
+assert jsonResponse.data.attributes.note == 'kalo lagi tax heaven' : "wajib sama"
+
+// Simpan favorite ID untuk test lain
+GlobalVariable.favoriteId = jsonResponse.data.id
+
+println("Test postFavorite berhasil - Favorite ID: " + jsonResponse.data.id)
 

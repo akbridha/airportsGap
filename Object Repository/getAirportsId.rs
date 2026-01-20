@@ -20,6 +20,13 @@
    <restRequestMethod>GET</restRequestMethod>
    <restUrl>https://airportgap.com/api/airports/${airportID}</restUrl>
    <serviceType>RESTful</serviceType>
+   <variables>
+      <defaultValue>KIX</defaultValue>
+      <description></description>
+      <id>airportID</id>
+      <masked>false</masked>
+      <name>airportID</name>
+   </variables>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
    <soapRequestMethod></soapRequestMethod>

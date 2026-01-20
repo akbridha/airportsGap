@@ -30,7 +30,7 @@
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
-      <value>Bearer 8Ng1K8fTjoykWov4CfBowtYf</value>
+      <value>Bearer ${token}</value>
       <webElementGuid>793b073e-1c27-4f41-80e0-0ec6fa2ac5e6</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>10.4.2</katalonVersion>
@@ -38,7 +38,7 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>PATCH</restRequestMethod>
-   <restUrl>https://airportgap.com/api/favorites/41212</restUrl>
+   <restUrl>https://airportgap.com/api/favorites/${favoriteId}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -61,4 +61,32 @@ RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
+   <variables>
+      <defaultValue>1</defaultValue>
+      <description></description>
+      <id>favoriteId</id>
+      <masked>false</masked>
+      <name>favoriteId</name>
+   </variables>
+   <variables>
+      <defaultValue>KIX</defaultValue>
+      <description></description>
+      <id>airport_id</id>
+      <masked>false</masked>
+      <name>airport_id</name>
+   </variables>
+   <variables>
+      <defaultValue>Updated note</defaultValue>
+      <description></description>
+      <id>note</id>
+      <masked>false</masked>
+      <name>note</name>
+   </variables>
+   <variables>
+      <defaultValue>your_token_here</defaultValue>
+      <description></description>
+      <id>token</id>
+      <masked>false</masked>
+      <name>token</name>
+   </variables>
 </WebServiceRequestEntity>

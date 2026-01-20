@@ -16,4 +16,28 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper
+
+// Kirim request dengan parameter dinamis
+def response = WS.sendRequest(findTestObject('postDistance', [
+	('from') : 'KIX',
+	('to') : 'NRT'
+]))
+
+// Assertion sederhana
+WS.verifyResponseStatusCode(response, 200)
+
+// Parse response JSON
+def jsonSlurper = new JsonSlurper()
+def jsonResponse = jsonSlurper.parseText(response.getResponseBodyContent())
+
+// Verifikasi data distance
+assert jsonResponse.data != null : "Data distance tidak boleh null"
+assert jsonResponse.data.attributes.from_airport.iata == 'KIX' : "From airport harus sesuai"
+assert jsonResponse.data.attributes.to_airport.iata == 'NRT' : "To airport harus sesuai"
+assert jsonResponse.data.attributes.kilometers != null : "Distance dalam kilometers harus ada"
+assert jsonResponse.data.attributes.miles != null : "Distance dalam miles harus ada"
+assert jsonResponse.data.attributes.kilometers > 0 : "Distance harus lebih dari 0"
+
+println("Test postDistance berhasil - Distance: " + jsonResponse.data.attributes.kilometers + " km")
 

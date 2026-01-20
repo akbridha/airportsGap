@@ -16,4 +16,25 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper
+
+// Kirim request dengan token dinamis
+def response = WS.sendRequest(findTestObject('getFavorite', [
+	('token') : GlobalVariable.authToken
+]))
+
+// Assertion sederhana
+WS.verifyResponseStatusCode(response, 200)
+
+// Parse response JSON
+def jsonSlurper = new JsonSlurper()
+def jsonResponse = jsonSlurper.parseText(response.getResponseBodyContent())
+
+// Verifikasi favorites
+assert jsonResponse.data != null : "Masih kosong"
+
+
+assert jsonResponse.data instanceof List : "Data harus berupa array"
+
+println("Test getFavorites berhasil - Total favorites: " + jsonResponse.data.size())
 

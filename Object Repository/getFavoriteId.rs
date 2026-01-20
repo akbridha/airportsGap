@@ -18,8 +18,29 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl></restUrl>
+   <restUrl>https://airportgap.com/api/favorites/${favoriteId}</restUrl>
    <serviceType>RESTful</serviceType>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Authorization</name>
+      <type>Main</type>
+      <value>Bearer ${token}</value>
+   </httpHeaderProperties>
+   <variables>
+      <defaultValue>1</defaultValue>
+      <description></description>
+      <id>favoriteId</id>
+      <masked>false</masked>
+      <name>favoriteId</name>
+   </variables>
+   <variables>
+      <defaultValue>your_token_here</defaultValue>
+      <description></description>
+      <id>token</id>
+      <masked>false</masked>
+      <name>token</name>
+   </variables>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
    <soapRequestMethod></soapRequestMethod>

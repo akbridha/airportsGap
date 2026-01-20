@@ -18,8 +18,22 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>https://airportgap.com/api/airports</restUrl>
+   <restUrl>https://airportgap.com/api/airports?page=${page}&amp;size=${size}</restUrl>
    <serviceType>RESTful</serviceType>
+   <variables>
+      <defaultValue>1</defaultValue>
+      <description></description>
+      <id>page</id>
+      <masked>false</masked>
+      <name>page</name>
+   </variables>
+   <variables>
+      <defaultValue>10</defaultValue>
+      <description></description>
+      <id>size</id>
+      <masked>false</masked>
+      <name>size</name>
+   </variables>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
    <soapRequestMethod></soapRequestMethod>
