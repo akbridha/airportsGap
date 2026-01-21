@@ -48,7 +48,7 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'HFN'</defaultValue>
       <description></description>
       <id>4072ef3d-3674-4787-beef-92736c46fcf5</id>
       <masked>false</masked>

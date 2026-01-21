@@ -7,16 +7,24 @@
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
-   <autoUpdateContent>true</autoUpdateContent>
+   <autoUpdateContent>false</autoUpdateContent>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>true</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  "contentType": "application/json",
-  "charset": "UTF-8",
-  "text": "{\\n  \\\"from\\\": \\\"${from}\\\",\\n  \\\"to\\\": \\\"${to}\\\"\\n}"
+  &quot;text&quot;: &quot;{\n  \&quot;from\&quot;: \&quot;${from}\&quot;,\n  \&quot;to\&quot;: \&quot;${to}\&quot;\n}&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
+  &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
    <httpBodyType>text</httpBodyType>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Content-Type</name>
+      <type>Main</type>
+      <value>application/json</value>
+      <webElementGuid>bfe12280-ebeb-4aec-88c3-2e77cb0258bd</webElementGuid>
+   </httpHeaderProperties>
    <katalonVersion>10.4.2</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
@@ -31,19 +39,32 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
-   <wsdlAddress></wsdlAddress>
    <variables>
-      <defaultValue>KIX</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>from</id>
       <masked>false</masked>
       <name>from</name>
    </variables>
    <variables>
-      <defaultValue>NRT</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>to</id>
       <masked>false</masked>
       <name>to</name>
    </variables>
+   <verificationScript>import static org.assertj.core.api.Assertions.*
+
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webservice.verification.WSResponseManager
+
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
+
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
+   <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
