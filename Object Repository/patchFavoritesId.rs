@@ -12,7 +12,7 @@
    <followRedirects>true</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;airport_id\&quot;: \&quot;JFK\&quot;,\n  \&quot;note\&quot;: \&quot;Airport Produksi Yayabelah\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n\n  \&quot;note\&quot;: \&quot;${note}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;text/plain&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -47,6 +47,27 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>ade2e427-4ee3-45c7-90c2-62a9c72ad533</id>
+      <masked>false</masked>
+      <name>favoriteId</name>
+   </variables>
+   <variables>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>63e0ff20-8e32-461b-aaf0-44af6dc31c93</id>
+      <masked>false</masked>
+      <name>airport_id</name>
+   </variables>
+   <variables>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>db5dca38-2c7c-4535-9984-a529b3fd5312</id>
+      <masked>false</masked>
+      <name>note</name>
+   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject
@@ -61,32 +82,4 @@ RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
-   <variables>
-      <defaultValue>1</defaultValue>
-      <description></description>
-      <id>favoriteId</id>
-      <masked>false</masked>
-      <name>favoriteId</name>
-   </variables>
-   <variables>
-      <defaultValue>KIX</defaultValue>
-      <description></description>
-      <id>airport_id</id>
-      <masked>false</masked>
-      <name>airport_id</name>
-   </variables>
-   <variables>
-      <defaultValue>Updated note</defaultValue>
-      <description></description>
-      <id>note</id>
-      <masked>false</masked>
-      <name>note</name>
-   </variables>
-   <variables>
-      <defaultValue>your_token_here</defaultValue>
-      <description></description>
-      <id>token</id>
-      <masked>false</masked>
-      <name>token</name>
-   </variables>
 </WebServiceRequestEntity>

@@ -48,7 +48,7 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>'KIX'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>4072ef3d-3674-4787-beef-92736c46fcf5</id>
       <masked>false</masked>
@@ -62,7 +62,7 @@
       <name>note</name>
    </variables>
    <variables>
-      <defaultValue>'your_token_here'</defaultValue>
+      <defaultValue>'6rGgz23fmVE1mnW7n1RH7PsL'</defaultValue>
       <description></description>
       <id>1937c4c1-881d-421d-ae97-34c2a463ef3a</id>
       <masked>false</masked>

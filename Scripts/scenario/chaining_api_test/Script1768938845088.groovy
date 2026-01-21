@@ -17,9 +17,9 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-println("========================================")
+
 println("   API CHAINING TEST - AIRPORT FAVORITE")
-println("========================================\n")
+println("=====#################=======\n")
 
 // ==========================================
 // STEP 0: Get Authentication Token
@@ -32,42 +32,38 @@ WebUI.callTestCase(findTestCase('service/postTokensTest'), [:], FailureHandling.
 println("✓ Token berhasil didapatkan: ${GlobalVariable.authToken}\n")
 */
 
-// ==========================================
-// STEP 1: GET Airport
-// ==========================================
-println("STEP 1: Mengambil data Airport...")
+println("STEP 0: Menghapus semua Favorite... karena tidak boleh duplikat")
+WebUI.callTestCase(findTestCase('service/deleteFavoritesAllTest'), [:], FailureHandling.STOP_ON_FAILURE)
+println()
+
+//=======
+println(" 1: Mengambil data Airport...")
 WebUI.callTestCase(findTestCase('service/getAirportByIdTest'), [:], FailureHandling.STOP_ON_FAILURE)
 println()
 
+
+// 2 Add Airport to Favorite
 // ==========================================
-// STEP 2: Add Airport to Favorite
-// ==========================================
-println("STEP 2: Menambahkan Airport ke Favorite...")
+println("2: Menambahkan Airport ke Favorite...")
 WebUI.callTestCase(findTestCase('service/postFavorite'), [:], FailureHandling.STOP_ON_FAILURE)
-println()
+//println()
 
+// 3 Edit Note pada Favorite
 // ==========================================
-// STEP 3: Edit Note pada Favorite
-// ==========================================
-println("STEP 3: Mengupdate Note pada Favorite...")
+println("3: Mengupdate Note pada Favorite...")
 WebUI.callTestCase(findTestCase('service/patchFavoritesById'), [:], FailureHandling.STOP_ON_FAILURE)
-println()
+//println()
 
-// ==========================================
-// STEP 4: GET Favorite
-// ==========================================
+
+
+// 4: GET Favorite
 println("STEP 4: Mengambil semua Favorite...")
 WebUI.callTestCase(findTestCase('service/getFavoritesTest'), [:], FailureHandling.STOP_ON_FAILURE)
 println()
 
-// ==========================================
-// STEP 5: Delete Semua Favorite
-// ==========================================
-println("STEP 5: Menghapus semua Favorite...")
-WebUI.callTestCase(findTestCase('service/deleteFavoritesAllTest'), [:], FailureHandling.STOP_ON_FAILURE)
-println()
+//P 5: Delete Semua Favorite
 
-println("========================================")
-println("   ✓ API CHAINING TEST SELESAI")
-println("========================================")
 
+
+//
+println(" TEST SELESAI")

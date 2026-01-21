@@ -32,9 +32,23 @@ def jsonResponse = jsonSlurper.parseText(response.getResponseBodyContent())
 
 // Verifikasi favorites
 assert jsonResponse.data != null : "Masih kosong"
-
-
 assert jsonResponse.data instanceof List : "Data harus berupa array"
 
 println("Test getFavorites berhasil - Total favorites: " + jsonResponse.data.size())
+println("\n========== DAFTAR SEMUA FAVORITES ==========")
+
+// Loop dan tampilkan setiap favorite
+jsonResponse.data.eachWithIndex { favorite, index ->
+    println("\n--- Favorite #${index + 1} ---")
+    println("ID: ${favorite.id}")
+    println("Type: ${favorite.type}")
+    println("Airport ID: ${favorite.attributes.airport.id}")
+    println("Airport Name: ${favorite.attributes.airport.name}")
+    println("Airport IATA: ${favorite.attributes.airport.iata}")
+    println("City: ${favorite.attributes.airport.city}")
+    println("Country: ${favorite.attributes.airport.country}")
+    println("Note: ${favorite.attributes.note}")
+}
+
+println("\n============================================")
 

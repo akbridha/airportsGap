@@ -20,8 +20,8 @@ import groovy.json.JsonSlurper
 
 // Kirim request dengan parameter dinamis
 def response = WS.sendRequest(findTestObject('postFavorite', [
-	('airport_id') : 'GKA',
-	('note') : 'kalo lagi tax heaven',
+	('airport_id') : 'AEY',
+	('note') : 'akureyri',
 	('token') : GlobalVariable.authToken
 ]))
 
@@ -39,10 +39,10 @@ def jsonResponse = jsonSlurper.parseText(response.getResponseBodyContent())
 // Verifikasi favorite dibuat
 assert jsonResponse.data != null : "Data favorite tidak boleh null"
 assert jsonResponse.data.id != null : "Favorite ID harus ada"
-assert jsonResponse.data.attributes.airport.iata == 'HGU' : "Airport IATA mesti  sesuai"
-assert jsonResponse.data.attributes.note == 'kalo lagi tax heaven' : "wajib sama"
+assert jsonResponse.data.attributes.airport.iata == 'AEY' : "Airport IATA mesti  sesuai"
+assert jsonResponse.data.attributes.note == 'akureyri' : "wajib sama"
 
-// Simpan favorite ID untuk test lain
+//jaga jga simpan id favorite
 GlobalVariable.favoriteId = jsonResponse.data.id
 
 println("Test postFavorite berhasil - Favorite ID: " + jsonResponse.data.id)
